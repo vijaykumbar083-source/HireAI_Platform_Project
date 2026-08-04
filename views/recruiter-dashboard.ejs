@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruiter Dashboard | HireAI</title>
+
+    <link rel="stylesheet" href="/css/recruiter_dashboard.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <h2>HireAI</h2>
+
+        <ul>
+
+            <li class="active">
+                <a href="/recruiter_dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="/post_job">
+                    <i class="fa-solid fa-plus"></i>
+                    Post Job
+                </a>
+            </li>
+
+            <li>
+                <a href="/manage_jobs">
+                    <i class="fa-solid fa-briefcase"></i>
+                    Manage Jobs
+                </a>
+            </li>
+
+            <li>
+                <a href="/view_applicants">
+                    <i class="fa-solid fa-users"></i>
+                    Applicants
+                </a>
+            </li>
+
+            <li>
+                <a href="/interview_schedule">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Interviews
+                </a>
+            </li>
+
+            <li>
+                <a href="/company_profile">
+                    <i class="fa-solid fa-building"></i>
+                    Company
+                </a>
+            </li>
+
+            <li>
+                <a href="/">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Navbar -->
+        <header class="navbar">
+
+            <h1>Recruiter Dashboard</h1>
+
+            <div class="profile">
+
+                <img src="https://i.pravatar.cc/50" alt="Profile">
+
+                <span>Recruiter</span>
+
+            </div>
+
+        </header>
+
+        <!-- Cards -->
+        <section class="cards">
+
+            <div class="card">
+                <h2>12</h2>
+                <p>Total Jobs</p>
+            </div>
+
+            <div class="card">
+                <h2>164</h2>
+                <p>Applications</p>
+            </div>
+
+            <div class="card">
+                <h2>18</h2>
+                <p>Interviews</p>
+            </div>
+
+            <div class="card">
+                <h2>7</h2>
+                <p>Selected</p>
+            </div>
+
+        </section>
+
+        <!-- Recent Applicants -->
+        <section class="table-section">
+
+            <h2>Recent Applicants</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Experience</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>Rahul Sharma</td>
+                        <td>MERN Developer</td>
+                        <td>2 Years</td>
+                        <td>Applied</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Priya Patil</td>
+                        <td>Frontend Developer</td>
+                        <td>1 Year</td>
+                        <td>Interview</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Aman Verma</td>
+                        <td>Java Developer</td>
+                        <td>3 Years</td>
+                        <td>Shortlisted</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="actions">
+
+            <h2>Quick Actions</h2>
+
+            <button onclick="location.href='/post_job'">
+                Post New Job
+            </button>
+
+            <button onclick="location.href='/manage_jobs'">
+                Manage Jobs
+            </button>
+
+            <button onclick="location.href='/view_applicants'">
+                View Applicants
+            </button>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

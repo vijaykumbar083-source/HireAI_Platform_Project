@@ -3,11 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hire_Ai</title>
-     <link rel="stylesheet" href="/css/style.css">
+    <title>HireAI | User Dashboard</title>
+
+    <link rel="stylesheet" href="/css/user_dashboard.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body>
-    <h1>User Dashboard</h1>
-    
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+
+        <div class="logo">
+            <h2>HireAI</h2>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search Jobs...">
+        </div>
+
+        <div class="nav-right">
+            <i class="fa-solid fa-bell"></i>
+            <img src="/images/user.png" alt="User">
+        </div>
+
+    </header>
+
+    <!-- ================= CONTAINER ================= -->
+
+    <div class="container">
+
+        <!-- ============ SIDEBAR ============ -->
+
+        <aside class="sidebar">
+
+            <ul>
+
+                <li class="active">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-user"></i>
+                    My Profile
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-file"></i>
+                    Resume
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-briefcase"></i>
+                    Jobs
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Applications
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Interviews
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </li>
+
+            </ul>
+
+        </aside>
+
+        <!-- ============ MAIN CONTENT ============ -->
+
+        <main class="main-content">
+
+            <!-- Welcome -->
+
+            <section class="welcome">
+
+                <h1>Welcome, Vijay 👋</h1>
+
+                <p>Let's find your dream job today.</p>
+
+            </section>
+
+            <!-- Dashboard Cards -->
+
+            <section class="cards">
+
+                <div class="card">
+                    <h2>12</h2>
+                    <p>Applications</p>
+                </div>
+
+                <div class="card">
+                    <h2>8</h2>
+                    <p>Saved Jobs</p>
+                </div>
+
+                <div class="card">
+                    <h2>2</h2>
+                    <p>Interviews</p>
+                </div>
+
+                <div class="card">
+                    <h2>87%</h2>
+                    <p>ATS Score</p>
+                </div>
+
+            </section>
+
+            <!-- Resume -->
+
+            <section class="resume">
+
+                <h2>Resume</h2>
+
+                <p>Resume.pdf</p>
+
+                <button>Upload Resume</button>
+
+                <button>Analyze Resume</button>
+
+            </section>
+
+            <!-- Recommended Jobs -->
+
+            <section class="jobs">
+
+                <h2>Recommended Jobs</h2>
+
+                <div class="job">
+
+                    <h3>Backend Developer</h3>
+
+                    <p>Google</p>
+
+                    <button>Apply</button>
+
+                </div>
+
+                <div class="job">
+
+                    <h3>MERN Stack Developer</h3>
+
+                    <p>Infosys</p>
+
+                    <button>Apply</button>
+
+                </div>
+
+            </section>
+
+            <!-- Recent Applications -->
+
+            <section class="applications">
+
+                <h2>Recent Applications</h2>
+
+                <table>
+
+                    <tr>
+                        <th>Company</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                    </tr>
+
+                    <tr>
+                        <td>Google</td>
+                        <td>Backend Developer</td>
+                        <td>Under Review</td>
+                    </tr>
+
+                    <tr>
+                        <td>Amazon</td>
+                        <td>Node.js Developer</td>
+                        <td>Interview</td>
+                    </tr>
+
+                    <tr>
+                        <td>IBM</td>
+                        <td>Full Stack Developer</td>
+                        <td>Rejected</td>
+                    </tr>
+
+                </table>
+
+            </section>
+
+            <!-- Upcoming Interviews -->
+
+            <section class="interviews">
+
+                <h2>Upcoming Interviews</h2>
+
+                <div class="interview">
+
+                    <h3>Google</h3>
+
+                    <p>Backend Developer</p>
+
+                    <p>12 Aug 2026 | 10:30 AM</p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
 </body>
 </html>
