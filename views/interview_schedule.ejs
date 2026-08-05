@@ -1,40 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Interview Schedule</title>
-    <link rel="stylesheet" href="/css/interview_schedule.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interviews | HireAI</title>
+    <link rel="stylesheet" href="/css/recruiter_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
 
-<h1>Interview Schedule</h1>
+<div class="container">
 
-<table border="1">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>HireAI</h2>
+        <ul>
+            <li>
+                <a href="/recruiter_dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="/recruiter_dashboard/post_job">
+                    <i class="fa-solid fa-plus"></i>
+                    Post Job
+                </a>
+            </li>
+            <li>
+                <a href="/recruiter_dashboard/manage_jobs">
+                    <i class="fa-solid fa-briefcase"></i>
+                    Manage Jobs
+                </a>
+            </li>
+            <li>
+                <a href="/recruiter_dashboard/view_applicants">
+                    <i class="fa-solid fa-users"></i>
+                    Applicants
+                </a>
+            </li>
+            <li class="active">
+                <a href="/recruiter_dashboard/interview_schedule">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Interviews
+                </a>
+            </li>
+            <li>
+                <a href="/recruiter_dashboard/company_profile">
+                    <i class="fa-solid fa-building"></i>
+                    Company
+                </a>
+            </li>
+            <li>
+                <a href="/">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </aside>
 
-<tr>
-    <th>Candidate</th>
-    <th>Job</th>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Status</th>
-</tr>
+    <!-- Main Content -->
+    <main class="main-content">
 
-<tr>
-    <td>Rahul Sharma</td>
-    <td>MERN Developer</td>
-    <td>10 Aug 2026</td>
-    <td>10:00 AM</td>
-    <td>Scheduled</td>
-</tr>
+        <!-- Navbar -->
+        <header class="navbar">
+            <h1>Interview Schedule</h1>
+            <div class="profile">
+                <img src="https://i.pravatar.cc/50" alt="Profile">
+                <span>Recruiter</span>
+            </div>
+        </header>
 
-<tr>
-    <td>Priya Patil</td>
-    <td>Frontend Developer</td>
-    <td>12 Aug 2026</td>
-    <td>2:00 PM</td>
-    <td>Completed</td>
-</tr>
+        <!-- Interview List Section -->
+        <section class="table-section">
+            <div class="section-header">
+                <h2>Upcoming Interviews</h2>
+                <button class="btn-primary">
+                    <i class="fa-solid fa-calendar-plus"></i> Schedule New
+                </button>
+            </div>
 
-</table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Candidate</th>
+                        <th>Target Role</th>
+                        <th>Date & Time</th>
+                        <th>Type</th>
+                        <th>Meeting Link</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Priya Patil</td>
+                        <td>Frontend Developer</td>
+                        <td>Aug 08, 2026 | 11:00 AM</td>
+                        <td>AI Round</td>
+                        <td><a href="#" class="link-btn"><i class="fa-solid fa-video"></i> Join Call</a></td>
+                        <td>
+                            <button class="btn-icon" title="Reschedule"><i class="fa-solid fa-clock"></i></button>
+                            <button class="btn-icon danger" title="Cancel"><i class="fa-solid fa-xmark"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Siddharth Mehta</td>
+                        <td>MERN Developer</td>
+                        <td>Aug 09, 2026 | 02:30 PM</td>
+                        <td>Technical Round</td>
+                        <td><a href="#" class="link-btn"><i class="fa-solid fa-video"></i> Join Call</a></td>
+                        <td>
+                            <button class="btn-icon" title="Reschedule"><i class="fa-solid fa-clock"></i></button>
+                            <button class="btn-icon danger" title="Cancel"><i class="fa-solid fa-xmark"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+</div>
 
 </body>
 </html>

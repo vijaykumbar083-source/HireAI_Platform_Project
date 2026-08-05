@@ -1,43 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Manage Jobs</title>
-    <link rel="stylesheet" href="/css/manage_jobs.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Jobs | HireAI</title>
+    <link rel="stylesheet" href="/css/recruiter_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
 
-<h1>Manage Jobs</h1>
+<div class="container">
 
-<table border="1">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>HireAI</h2>
+        <ul>
+            <li>
+                <a href="/recruiter_dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="/recruiter_dashboard/post_job">
+                    <i class="fa-solid fa-plus"></i>
+                    Post Job
+                </a>
+            </li>
+            <li class="active">
+                <a href="/recruiter_dashboard/manage_jobs">
+                    <i class="fa-solid fa-briefcase"></i>
+                    Manage Jobs
+                </a>
+            </li>
+            <li>
+                <a href="/recruiter_dashboard/view_applicants">
+                    <i class="fa-solid fa-users"></i>
+                    Applicants
+                </a>
+            </li>
+            <li>
+                <a href="/recruiter_dashboard/interview_schedule">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Interviews
+                </a>
+            </li>
+            <li>
+                <a href="/recruiter_dashboard/company_profile">
+                    <i class="fa-solid fa-building"></i>
+                    Company
+                </a>
+            </li>
+            <li>
+                <a href="/">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </aside>
 
-<tr>
-    <th>Job</th>
-    <th>Location</th>
-    <th>Status</th>
-    <th>Action</th>
-</tr>
+    <!-- Main Content -->
+    <main class="main-content">
 
-<tr>
-    <td>MERN Developer</td>
-    <td>Bangalore</td>
-    <td>Active</td>
-    <td>
-        <button>Edit</button>
-        <button>Delete</button>
-    </td>
-</tr>
+        <!-- Navbar -->
+        <header class="navbar">
+            <h1>Manage Jobs</h1>
+            <div class="profile">
+                <img src="https://i.pravatar.cc/50" alt="Profile">
+                <span>Recruiter</span>
+            </div>
+        </header>
 
-<tr>
-    <td>Java Developer</td>
-    <td>Pune</td>
-    <td>Closed</td>
-    <td>
-        <button>Edit</button>
-        <button>Delete</button>
-    </td>
-</tr>
+        <!-- Manage Jobs Table -->
+        <section class="table-section">
+            <div class="section-header">
+                <h2>Active & Closed Postings</h2>
+                <button class="btn-primary" onclick="location.href='/recruiter_dashboard/post_job'">
+                    <i class="fa-solid fa-plus"></i> Post New Job
+                </button>
+            </div>
 
-</table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Type</th>
+                        <th>Applications</th>
+                        <th>Date Posted</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MERN Stack Developer</td>
+                        <td>Full-Time</td>
+                        <td>42</td>
+                        <td>Aug 01, 2026</td>
+                        <td><span class="status active">Active</span></td>
+                        <td class="actions-cell">
+                            <button class="btn-icon" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn-icon danger" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Frontend Developer</td>
+                        <td>Full-Time</td>
+                        <td>68</td>
+                        <td>Jul 20, 2026</td>
+                        <td><span class="status active">Active</span></td>
+                        <td class="actions-cell">
+                            <button class="btn-icon" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn-icon danger" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Java Backend Lead</td>
+                        <td>Full-Time</td>
+                        <td>54</td>
+                        <td>Jul 10, 2026</td>
+                        <td><span class="status closed">Closed</span></td>
+                        <td class="actions-cell">
+                            <button class="btn-icon" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn-icon danger" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+</div>
 
 </body>
 </html>

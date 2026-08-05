@@ -3,39 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post Job</title>
-
-    <link rel="stylesheet" href="/css/post_job.css">
+    <title>Post Job | HireAI</title>
+    <link rel="stylesheet" href="/css/recruiter_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
 
 <div class="container">
 
-    <h1>Post New Job</h1>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>HireAI</h2>
+        <ul>
+            <li>
+                <a href="/recruiter_dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="active">
+                <a href="/recruiter_dashboard/post_job">
+                    <i class="fa-solid fa-plus"></i>
+                    Post Job
+                </a>
+            </li>
+            <li>
+                <a href="/recruiter_dashboard/manage_jobs">
+                    <i class="fa-solid fa-briefcase"></i>
+                    Manage Jobs
+                </a>
+            </li>
+            <li>
+                <a href="/recruiter_dashboard/view_applicants">
+                    <i class="fa-solid fa-users"></i>
+                    Applicants
+                </a>
+            </li>
+            <li>
+                <a href="/recruiter_dashboard/interview_schedule">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Interviews
+                </a>
+            </li>
+            <li>
+                <a href="/recruiter_dashboard/company_profile">
+                    <i class="fa-solid fa-building"></i>
+                    Company
+                </a>
+            </li>
+            <li>
+                <a href="/">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </aside>
 
-    <form action="/post_job" method="POST">
+    <!-- Main Content -->
+    <main class="main-content">
 
-        <label>Job Title</label>
-        <input type="text" name="title" placeholder="Enter Job Title">
+        <!-- Navbar -->
+        <header class="navbar">
+            <h1>Post a New Job</h1>
+            <div class="profile">
+                <img src="https://i.pravatar.cc/50" alt="Profile">
+                <span>Recruiter</span>
+            </div>
+        </header>
 
-        <label>Location</label>
-        <input type="text" name="location" placeholder="Enter Location">
+        <!-- Post Job Form Section -->
+        <section class="form-section">
+            <h2>Job Details</h2>
+            <form action="/api/jobs/create" method="POST" class="job-form">
+                
+                <div class="form-group">
+                    <label for="job-title">Job Title</label>
+                    <input type="text" id="job-title" name="title" placeholder="e.g. Senior MERN Developer" required>
+                </div>
 
-        <label>Experience</label>
-        <input type="text" name="experience" placeholder="Required Experience">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="job-type">Employment Type</label>
+                        <select id="job-type" name="type" required>
+                            <option value="" disabled selected>Select Type</option>
+                            <option value="full-time">Full-Time</option>
+                            <option value="part-time">Part-Time</option>
+                            <option value="contract">Contract</option>
+                            <option value="internship">Internship</option>
+                        </select>
+                    </div>
 
-        <label>Salary</label>
-        <input type="text" name="salary" placeholder="Salary">
+                    <div class="form-group">
+                        <label for="experience">Required Experience</label>
+                        <select id="experience" name="experience" required>
+                            <option value="" disabled selected>Select Experience</option>
+                            <option value="fresher">Fresher (0 years)</option>
+                            <option value="1-2">1 - 2 Years</option>
+                            <option value="3-5">3 - 5 Years</option>
+                            <option value="5+">5+ Years</option>
+                        </select>
+                    </div>
+                </div>
 
-        <label>Skills</label>
-        <input type="text" name="skills" placeholder="Java, React, Node">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" placeholder="e.g. Bengaluru, Remote" required>
+                    </div>
 
-        <label>Description</label>
-        <textarea name="description"></textarea>
+                    <div class="form-group">
+                        <label for="salary">Salary Range</label>
+                        <input type="text" id="salary" name="salary" placeholder="e.g. $80,000 - $100,000 / year">
+                    </div>
+                </div>
 
-        <button type="submit">Post Job</button>
+                <div class="form-group">
+                    <label for="skills">Key Skills (comma separated)</label>
+                    <input type="text" id="skills" name="skills" placeholder="e.g. React, Node.js, MongoDB, Express">
+                </div>
 
-    </form>
+                <div class="form-group">
+                    <label for="description">Job Description</label>
+                    <textarea id="description" name="description" rows="6" placeholder="Describe key responsibilities and requirements..." required></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Publish Job</button>
+                    <button type="button" class="btn-secondary" onclick="window.history.back()">Cancel</button>
+                </div>
+
+            </form>
+        </section>
+
+    </main>
 
 </div>
 
