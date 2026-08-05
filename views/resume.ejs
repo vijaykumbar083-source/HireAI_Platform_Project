@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireAI | Resume Manager</title>
+    <link rel="stylesheet" href="/css/user_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            <h2>HireAI</h2>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search Jobs...">
+        </div>
+        <div class="nav-right">
+            <i class="fa-solid fa-bell"></i>
+            <img src="/images/user.png" alt="User">
+        </div>
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <ul>
+                <li>
+                    <a href="/user_dashboard">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/profile">
+                        <i class="fa-solid fa-user"></i>
+                        My Profile
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/user_dashboard/resume">
+                        <i class="fa-solid fa-file"></i>
+                        Resume
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/jobs">
+                        <i class="fa-solid fa-briefcase"></i>
+                        Jobs
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/applications">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Applications
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/interviews">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Interviews
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/settings">
+                        <i class="fa-solid fa-gear"></i>
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- Resume Upload Section -->
+            <section class="resume-section">
+                <h2>Manage Resume</h2>
+                <div class="resume-box">
+                    <i class="fa-solid fa-file-pdf resume-icon"></i>
+                    <div>
+                        <h3>Vijay_Kumar_Resume.pdf</h3>
+                        <p>Uploaded on: Aug 02, 2026 • Size: 1.2 MB</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-secondary"><i class="fa-solid fa-cloud-arrow-up"></i> Upload New</button>
+                        <button class="btn-primary"><i class="fa-solid fa-wand-magic-sparkles"></i> Analyze with AI</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ATS Score Breakdown -->
+            <section class="ats-section">
+                <h2>ATS Match Score</h2>
+                <div class="ats-card">
+                    <div class="ats-score">
+                        <h3>87%</h3>
+                        <span>Great Score</span>
+                    </div>
+                    <div class="ats-details">
+                        <h4>AI Insights & Recommendations:</h4>
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check text-success"></i> Strong keywords match for <strong>Node.js</strong> and <strong>Backend Engineering</strong>.</li>
+                            <li><i class="fa-solid fa-circle-check text-success"></i> Formatting is fully scannable by corporate ATS parsers.</li>
+                            <li><i class="fa-solid fa-circle-exclamation text-warning"></i> Add 3+ quantitative metrics to project impact (e.g., "Reduced latency by 25%").</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireAI | Browse Jobs</title>
+    <link rel="stylesheet" href="/css/user_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            <h2>HireAI</h2>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search Jobs...">
+        </div>
+        <div class="nav-right">
+            <i class="fa-solid fa-bell"></i>
+            <img src="/images/user.png" alt="User">
+        </div>
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <ul>
+                <li>
+                    <a href="/user_dashboard">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/profile">
+                        <i class="fa-solid fa-user"></i>
+                        My Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/resume">
+                        <i class="fa-solid fa-file"></i>
+                        Resume
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/user_dashboard/jobs">
+                        <i class="fa-solid fa-briefcase"></i>
+                        Jobs
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/applications">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Applications
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/interviews">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Interviews
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/settings">
+                        <i class="fa-solid fa-gear"></i>
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <section class="jobs-list-section">
+                
+                <div class="filter-bar">
+                    <input type="text" placeholder="Filter title or keyword...">
+                    <select>
+                        <option value="">All Locations</option>
+                        <option value="bengaluru">Bengaluru</option>
+                        <option value="remote">Remote</option>
+                        <option value="hyderabad">Hyderabad</option>
+                    </select>
+                    <select>
+                        <option value="">All Types</option>
+                        <option value="full-time">Full-Time</option>
+                        <option value="contract">Contract</option>
+                    </select>
+                </div>
+
+                <div class="job-cards-grid">
+                    
+                    <div class="job-card">
+                        <div class="job-header">
+                            <h3>Backend Developer</h3>
+                            <span class="company-name">Google</span>
+                        </div>
+                        <p class="job-meta"><i class="fa-solid fa-location-dot"></i> Bengaluru, IN • Full-Time</p>
+                        <p class="job-desc">Looking for an experienced Node.js developer to build scalable cloud microservices.</p>
+                        <div class="job-footer">
+                            <button class="btn-primary">Apply Now</button>
+                            <button class="btn-icon"><i class="fa-regular fa-bookmark"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-header">
+                            <h3>MERN Stack Developer</h3>
+                            <span class="company-name">Infosys</span>
+                        </div>
+                        <p class="job-meta"><i class="fa-solid fa-location-dot"></i> Remote • Full-Time</p>
+                        <p class="job-desc">Seeking a developer proficient in React, Express, MongoDB, and TypeScript.</p>
+                        <div class="job-footer">
+                            <button class="btn-primary">Apply Now</button>
+                            <button class="btn-icon"><i class="fa-regular fa-bookmark"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-header">
+                            <h3>Frontend Engineer</h3>
+                            <span class="company-name">Amazon</span>
+                        </div>
+                        <p class="job-meta"><i class="fa-solid fa-location-dot"></i> Hyderabad, IN • Full-Time</p>
+                        <p class="job-desc">Design and implement high-performance web user interfaces using modern Web standards.</p>
+                        <div class="job-footer">
+                            <button class="btn-primary">Apply Now</button>
+                            <button class="btn-icon"><i class="fa-regular fa-bookmark"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+</body>
+</html>

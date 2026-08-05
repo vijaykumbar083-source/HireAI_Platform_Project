@@ -1,69 +1,67 @@
 /* ==========================================================================
-   HireAI User Dashboard Stylesheet
+   HireAI - Complete Unified User Dashboard Stylesheet
+   Applies to: Dashboard, Profile, Resume, Jobs, Applications, Interviews, Settings
    ========================================================================== */
 
-/* --- CSS Variables & Design Tokens --- */
+/* --- Modern CSS Reset & Variable Definitions --- */
 :root {
-    --primary-color: #4f46e5;       /* Modern Indigo */
+    --primary-color: #4f46e5;
     --primary-hover: #4338ca;
-    --bg-color: #f8fafc;            /* Cool Light Background */
-    --card-bg: #ffffff;
-    --sidebar-bg: #0f172a;         /* Deep Slate Blue */
-    --sidebar-hover: #1e293b;
-    --text-main: #0f172a;
-    --text-muted: #64748b;
-    --text-light: #94a3b8;
+    --primary-light: #eef2ff;
+    --secondary-color: #0d9488;
+    --secondary-hover: #0f766e;
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
     --border-color: #e2e8f0;
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     
-    /* Status Colors */
+    /* Status Badge Colors */
     --status-review-bg: #fef3c7;
     --status-review-text: #d97706;
-    --status-interview-bg: #dcfce7;
-    --status-interview-text: #15803d;
+    --status-interview-bg: #dbeafe;
+    --status-interview-text: #2563eb;
     --status-rejected-bg: #fee2e2;
-    --status-rejected-text: #b91c1c;
-
-    /* Shadows & Radii */
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-    --transition: all 0.25s ease-in-out;
+    --status-rejected-text: #dc2626;
+    --status-success-bg: #dcfce7;
+    --status-success-text: #16a34a;
 }
 
-/* --- Global Resets --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: var(--font-family);
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
     line-height: 1.5;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 /* ==========================================================================
-   NAVBAR
+   1. TOP NAVBAR
    ========================================================================== */
 .navbar {
-    height: 70px;
-    background-color: var(--card-bg);
-    border-bottom: 1px solid var(--border-color);
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 2rem;
+    align-items: center;
+    background-color: var(--bg-card);
+    padding: 0.85rem 2rem;
+    border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: var(--shadow-sm);
 }
 
 .navbar .logo h2 {
@@ -73,25 +71,38 @@ body {
     letter-spacing: -0.5px;
 }
 
-.search-box {
-    flex: 0 1 400px;
+.navbar .search-box {
+    position: relative;
+    width: 380px;
 }
 
-.search-box input {
+.navbar .search-box input {
     width: 100%;
-    padding: 0.6rem 1.2rem;
-    border-radius: var(--radius-sm);
+    padding: 0.6rem 1rem 0.6rem 2.4rem;
     border: 1px solid var(--border-color);
-    background-color: var(--bg-color);
+    border-radius: 20px;
+    background-color: var(--bg-main);
     font-size: 0.9rem;
     outline: none;
-    transition: var(--transition);
+    transition: all 0.2s ease;
 }
 
-.search-box input:focus {
+.navbar .search-box input:focus {
     border-color: var(--primary-color);
-    background-color: var(--card-bg);
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.navbar .search-box::before {
+    content: "\f002";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 0.85rem;
 }
 
 .nav-right {
@@ -100,15 +111,14 @@ body {
     gap: 1.5rem;
 }
 
-.nav-right .fa-bell {
+.nav-right i {
     font-size: 1.2rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     cursor: pointer;
-    transition: var(--transition);
-    position: relative;
+    transition: color 0.2s;
 }
 
-.nav-right .fa-bell:hover {
+.nav-right i:hover {
     color: var(--primary-color);
 }
 
@@ -117,120 +127,129 @@ body {
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--primary-light);
     cursor: pointer;
 }
 
 /* ==========================================================================
-   CONTAINER & LAYOUT
+   2. MAIN CONTAINER & SIDEBAR LAYOUT
    ========================================================================== */
 .container {
     display: flex;
-    flex: 1;
+    min-height: calc(100vh - 65px);
 }
 
-/* ==========================================================================
-   SIDEBAR
-   ========================================================================== */
 .sidebar {
-    width: 250px;
-    background-color: var(--sidebar-bg);
+    width: 260px;
+    background-color: var(--bg-card);
+    border-right: 1px solid var(--border-color);
     padding: 1.5rem 1rem;
-    min-height: calc(100vh - 70px);
+    flex-shrink: 0;
 }
 
 .sidebar ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.35rem;
 }
 
-.sidebar ul li {
+.sidebar ul li a {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.85rem;
     padding: 0.8rem 1rem;
-    color: var(--text-light);
-    font-size: 0.95rem;
+    color: var(--text-secondary);
+    text-decoration: none;
     font-weight: 500;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    transition: var(--transition);
+    font-size: 0.95rem;
+    border-radius: var(--border-radius-sm);
+    transition: all 0.2s ease;
 }
 
-.sidebar ul li i {
+.sidebar ul li a i {
     font-size: 1.1rem;
-    width: 20px;
+    width: 22px;
     text-align: center;
 }
 
-.sidebar ul li:hover {
-    background-color: var(--sidebar-hover);
-    color: #ffffff;
+.sidebar ul li a:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
 }
 
-.sidebar ul li.active {
+.sidebar ul li.active a {
     background-color: var(--primary-color);
     color: #ffffff;
 }
 
-.sidebar ul li:last-child {
-    margin-top: 2rem;
-    color: #ef4444; /* Distinct red color for logout */
-}
-
-.sidebar ul li:last-child:hover {
-    background-color: rgba(239, 68, 68, 0.1);
+.sidebar ul li.active a i {
+    color: #ffffff;
 }
 
 /* ==========================================================================
-   MAIN CONTENT AREA
+   3. MAIN CONTENT CONTAINER
    ========================================================================== */
 .main-content {
-    flex: 1;
+    flex-grow: 1;
     padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    background-color: var(--bg-main);
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    max-width: 1200px;
 }
 
-/* --- Section Titles --- */
-.main-content h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--text-main);
+/* Base Card Wrapper for Sections across all pages */
+.welcome, 
+.profile-section, 
+.resume-section, 
+.ats-section, 
+.jobs-list-section, 
+.applications, 
+.interviews-section, 
+.settings-section,
+.resume,
+.jobs,
+.interviews {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 1.75rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
 }
 
-/* --- Welcome Banner --- */
-.welcome h1 {
-    font-size: 1.8rem;
+.welcome h1, h2 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
 }
 
 .welcome p {
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-size: 0.95rem;
 }
 
-/* --- Metrics / Dashboard Cards Grid --- */
+/* ==========================================================================
+   4. DASHBOARD PAGE - OVERVIEW CARDS
+   ========================================================================== */
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.25rem;
 }
 
 .card {
-    background-color: var(--card-bg);
+    background: var(--bg-card);
     padding: 1.5rem;
-    border-radius: var(--radius-md);
+    border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
-    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
@@ -239,211 +258,396 @@ body {
 }
 
 .card h2 {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2.2rem;
     color: var(--primary-color);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0;
 }
 
 .card p {
-    color: var(--text-muted);
-    font-size: 0.875rem;
+    color: var(--text-secondary);
     font-weight: 500;
-}
-
-/* --- Resume Section --- */
-.resume {
-    background-color: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-}
-
-.resume p {
-    display: inline-block;
-    background-color: var(--bg-color);
-    padding: 0.4rem 0.8rem;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-color);
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-main);
-    margin-bottom: 1rem;
-    margin-right: 1rem;
-}
-
-.resume button {
-    padding: 0.6rem 1.2rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.875rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    margin-right: 0.5rem;
-    border: none;
-}
-
-.resume button:nth-of-type(1) {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.resume button:nth-of-type(1):hover {
-    background-color: var(--primary-hover);
-}
-
-.resume button:nth-of-type(2) {
-    background-color: transparent;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-}
-
-.resume button:nth-of-type(2):hover {
-    background-color: rgba(79, 70, 229, 0.05);
-}
-
-/* --- Recommended Jobs Section --- */
-.jobs {
-    display: flex;
-    flex-direction: column;
-}
-
-.jobs .job {
-    background-color: var(--card-bg);
-    padding: 1.25rem 1.5rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-color);
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-}
-
-.jobs .job:hover {
-    border-color: #cbd5e1;
-    box-shadow: var(--shadow-md);
-}
-
-.jobs .job h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-main);
-}
-
-.jobs .job p {
-    color: var(--text-muted);
-    font-size: 0.875rem;
-}
-
-.jobs .job button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.5rem 1.25rem;
-    border-radius: var(--radius-sm);
-    font-weight: 600;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.jobs .job button:hover {
-    background-color: var(--primary-hover);
-}
-
-/* --- Recent Applications Table --- */
-.applications {
-    overflow-x: auto;
-}
-
-.applications table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--card-bg);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-}
-
-.applications th, 
-.applications td {
-    padding: 1rem 1.25rem;
-    text-align: left;
     font-size: 0.9rem;
-}
-
-.applications th {
-    background-color: #f1f5f9;
-    color: var(--text-muted);
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
-}
-
-.applications tr {
-    border-bottom: 1px solid var(--border-color);
-}
-
-.applications tr:last-child {
-    border-bottom: none;
-}
-
-/* Custom CSS Styling for Table Status Badges */
-.applications td:last-child {
-    font-weight: 600;
-    font-size: 0.8rem;
-}
-
-/* Styling table status cells as dynamic visual pill-tags */
-.applications tr:nth-child(1) td:last-child {
-    color: var(--status-review-text);
-}
-.applications tr:nth-child(2) td:last-child {
-    color: var(--status-interview-text);
-}
-.applications tr:nth-child(3) td:last-child {
-    color: var(--status-rejected-text);
-}
-
-/* --- Upcoming Interviews --- */
-.interviews .interview {
-    background-color: var(--card-bg);
-    padding: 1.25rem 1.5rem;
-    border-radius: var(--radius-md);
-    border-left: 4px solid var(--primary-color);
-    border-top: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-}
-
-.interviews .interview h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-}
-
-.interviews .interview p:nth-of-type(1) {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-.interviews .interview p:nth-of-type(2) {
-    color: var(--primary-color);
-    font-size: 0.85rem;
-    font-weight: 600;
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (MEDIA QUERIES)
+   5. BUTTONS & BADGES
    ========================================================================== */
+.btn-primary, button.btn-primary, .btn-primary button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
 
-/* Tablets & Smaller Desktops */
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-main);
+    border-color: var(--text-muted);
+}
+
+.btn-icon {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-icon:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: var(--primary-light);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+/* Badges */
+.badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+}
+
+.status-review {
+    background-color: var(--status-review-bg);
+    color: var(--status-review-text);
+}
+
+.status-interview {
+    background-color: var(--status-interview-bg);
+    color: var(--status-interview-text);
+}
+
+.status-rejected {
+    background-color: var(--status-rejected-bg);
+    color: var(--status-rejected-text);
+}
+
+.status-success {
+    background-color: var(--status-success-bg);
+    color: var(--status-success-text);
+}
+
+/* ==========================================================================
+   6. PROFILE & SETTINGS PAGES (Forms)
+   ========================================================================== */
+.profile-form, .settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #ffffff;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-actions {
+    margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   7. RESUME PAGE & ATS INSIGHTS
+   ========================================================================== */
+.resume-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem;
+    border: 1px dashed var(--primary-color);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--primary-light);
+    margin-top: 1rem;
+}
+
+.resume-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.ats-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    padding: 1.25rem;
+    background-color: var(--bg-main);
+    border-radius: var(--border-radius-sm);
+}
+
+.ats-score {
+    text-align: center;
+    padding: 1.25rem 1.75rem;
+    background: var(--bg-card);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+.ats-score h3 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+}
+
+.ats-score span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.ats-details h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.ats-details ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ats-details ul li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.text-success { color: var(--status-success-text); }
+.text-warning { color: var(--status-review-text); }
+
+/* ==========================================================================
+   8. JOBS PAGE & BROWSE LISTINGS
+   ========================================================================== */
+.filter-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-bar input, .filter-bar select {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.filter-bar input {
+    flex-grow: 1;
+}
+
+.job-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+}
+
+.job-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.job-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.job-header h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.company-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.job-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.job-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.job-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+.job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.job {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    background: var(--bg-card);
+}
+
+/* ==========================================================================
+   9. APPLICATIONS PAGE (Tables)
+   ========================================================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 0.9rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+th {
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+td {
+    color: var(--text-primary);
+}
+
+tbody tr:hover {
+    background-color: var(--primary-light);
+}
+
+/* ==========================================================================
+   10. INTERVIEWS PAGE
+   ========================================================================== */
+.interview-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+.interview-card, .interview {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.interview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.interview-actions {
+    margin-top: 0.75rem;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
 @media (max-width: 900px) {
     .container {
         flex-direction: column;
@@ -451,46 +655,28 @@ body {
 
     .sidebar {
         width: 100%;
-        min-height: auto;
-        padding: 0.5rem 1rem;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem;
     }
 
     .sidebar ul {
         flex-direction: row;
         overflow-x: auto;
-        padding-bottom: 0.5rem;
-    }
-
-    .sidebar ul li {
         white-space: nowrap;
     }
 
-    .sidebar ul li:last-child {
-        margin-top: 0;
-    }
-}
-
-/* Mobile Devices */
-@media (max-width: 600px) {
-    .navbar {
-        padding: 0 1rem;
+    .form-row {
+        grid-template-columns: 1fr;
     }
 
-    .search-box {
-        display: none; /* Hide search input on tiny screens for cleaner layout */
-    }
-
-    .main-content {
-        padding: 1rem;
-    }
-
-    .jobs .job {
+    .ats-card, .resume-box {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.75rem;
+        gap: 1rem;
     }
 
-    .jobs .job button {
-        width: 100%;
+    .navbar .search-box {
+        width: 200px;
     }
 }

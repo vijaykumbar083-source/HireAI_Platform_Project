@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireAI | Interviews</title>
+    <link rel="stylesheet" href="/css/user_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            <h2>HireAI</h2>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search Jobs...">
+        </div>
+        <div class="nav-right">
+            <i class="fa-solid fa-bell"></i>
+            <img src="/images/user.png" alt="User">
+        </div>
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <ul>
+                <li>
+                    <a href="/user_dashboard">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/profile">
+                        <i class="fa-solid fa-user"></i>
+                        My Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/resume">
+                        <i class="fa-solid fa-file"></i>
+                        Resume
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/jobs">
+                        <i class="fa-solid fa-briefcase"></i>
+                        Jobs
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/applications">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Applications
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/user_dashboard/interviews">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Interviews
+                    </a>
+                </li>
+                <li>
+                    <a href="/user_dashboard/settings">
+                        <i class="fa-solid fa-gear"></i>
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <section class="interviews-section">
+                <h2>Upcoming Interviews</h2>
+
+                <div class="interview-cards">
+                    <div class="interview-card">
+                        <div class="interview-header">
+                            <h3>Google</h3>
+                            <span class="badge status-interview">AI Screening</span>
+                        </div>
+                        <p><strong>Role:</strong> Backend Developer</p>
+                        <p><strong>Date & Time:</strong> 12 Aug 2026 | 10:30 AM IST</p>
+                        <div class="interview-actions">
+                            <a href="#" class="btn-primary"><i class="fa-solid fa-video"></i> Join Meeting Room</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+</body>
+</html>

@@ -3,245 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HireAI | User Dashboard</title>
-
+    <title>HireAI | My Applications</title>
     <link rel="stylesheet" href="/css/user_dashboard.css">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- NAVBAR -->
     <header class="navbar">
-
         <div class="logo">
             <h2>HireAI</h2>
         </div>
-
         <div class="search-box">
             <input type="text" placeholder="Search Jobs...">
         </div>
-
         <div class="nav-right">
             <i class="fa-solid fa-bell"></i>
             <img src="/images/user.png" alt="User">
         </div>
-
     </header>
 
-    <!-- ================= CONTAINER ================= -->
-
+    <!-- CONTAINER -->
     <div class="container">
 
-        <!-- ============ SIDEBAR ============ -->
-
+        <!-- SIDEBAR -->
         <aside class="sidebar">
-
             <ul>
-
-                <li class="active">
+                <li>
                     <a href="/user_dashboard">
                         <i class="fa-solid fa-house"></i>
                         Dashboard
                     </a>
                 </li>
-
                 <li>
                     <a href="/user_dashboard/profile">
                         <i class="fa-solid fa-user"></i>
                         My Profile
                     </a>
                 </li>
-
                 <li>
                     <a href="/user_dashboard/resume">
                         <i class="fa-solid fa-file"></i>
                         Resume
                     </a>
                 </li>
-
                 <li>
                     <a href="/user_dashboard/jobs">
                         <i class="fa-solid fa-briefcase"></i>
                         Jobs
                     </a>
                 </li>
-
-                <li>
+                <li class="active">
                     <a href="/user_dashboard/applications">
                         <i class="fa-solid fa-paper-plane"></i>
                         Applications
                     </a>
                 </li>
-
                 <li>
                     <a href="/user_dashboard/interviews">
                         <i class="fa-solid fa-calendar-days"></i>
                         Interviews
                     </a>
                 </li>
-
                 <li>
                     <a href="/user_dashboard/settings">
                         <i class="fa-solid fa-gear"></i>
                         Settings
                     </a>
                 </li>
-
                 <li>
                     <a href="/">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         Logout
                     </a>
                 </li>
-
             </ul>
-
         </aside>
 
-        <!-- ============ MAIN CONTENT ============ -->
-
+        <!-- MAIN CONTENT -->
         <main class="main-content">
-
-            <!-- Welcome -->
-
-            <section class="welcome">
-
-                <h1>Welcome, Vijay 👋</h1>
-
-                <p>Let's find your dream job today.</p>
-
-            </section>
-
-            <!-- Dashboard Cards -->
-
-            <section class="cards">
-
-                <div class="card">
-                    <h2>12</h2>
-                    <p>Applications</p>
-                </div>
-
-                <div class="card">
-                    <h2>8</h2>
-                    <p>Saved Jobs</p>
-                </div>
-
-                <div class="card">
-                    <h2>2</h2>
-                    <p>Interviews</p>
-                </div>
-
-                <div class="card">
-                    <h2>87%</h2>
-                    <p>ATS Score</p>
-                </div>
-
-            </section>
-
-            <!-- Resume -->
-
-            <section class="resume">
-
-                <h2>Resume</h2>
-
-                <p>Resume.pdf</p>
-
-                <div class="action-buttons">
-                    <button class="btn-primary" onclick="location.href='/user_dashboard/resume'">Upload Resume</button>
-                    <button class="btn-secondary" onclick="location.href='/user_dashboard/resume'">Analyze Resume</button>
-                </div>
-
-            </section>
-
-            <!-- Recommended Jobs -->
-
-            <section class="jobs">
-
-                <h2>Recommended Jobs</h2>
-
-                <div class="job-list">
-                    <div class="job">
-
-                        <h3>Backend Developer</h3>
-
-                        <p>Google</p>
-
-                        <button class="btn-primary">Apply</button>
-
-                    </div>
-
-                    <div class="job">
-
-                        <h3>MERN Stack Developer</h3>
-
-                        <p>Infosys</p>
-
-                        <button class="btn-primary">Apply</button>
-
-                    </div>
-                </div>
-
-            </section>
-
-            <!-- Recent Applications -->
-
             <section class="applications">
-
-                <h2>Recent Applications</h2>
+                <h2>Application Tracker</h2>
 
                 <table>
                     <thead>
                         <tr>
                             <th>Company</th>
                             <th>Role</th>
+                            <th>Applied Date</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Google</td>
                             <td>Backend Developer</td>
+                            <td>Aug 01, 2026</td>
                             <td><span class="badge status-review">Under Review</span></td>
+                            <td><button class="btn-icon" title="View Details"><i class="fa-solid fa-eye"></i></button></td>
                         </tr>
-
                         <tr>
                             <td>Amazon</td>
                             <td>Node.js Developer</td>
+                            <td>Jul 28, 2026</td>
                             <td><span class="badge status-interview">Interview</span></td>
+                            <td><button class="btn-icon" title="View Details"><i class="fa-solid fa-eye"></i></button></td>
                         </tr>
-
                         <tr>
                             <td>IBM</td>
                             <td>Full Stack Developer</td>
+                            <td>Jul 15, 2026</td>
                             <td><span class="badge status-rejected">Rejected</span></td>
+                            <td><button class="btn-icon" title="View Details"><i class="fa-solid fa-eye"></i></button></td>
                         </tr>
                     </tbody>
                 </table>
-
             </section>
-
-            <!-- Upcoming Interviews -->
-
-            <section class="interviews">
-
-                <h2>Upcoming Interviews</h2>
-
-                <div class="interview">
-
-                    <h3>Google</h3>
-
-                    <p>Backend Developer</p>
-
-                    <p>12 Aug 2026 | 10:30 AM</p>
-
-                </div>
-
-            </section>
-
         </main>
 
     </div>
