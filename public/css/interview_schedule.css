@@ -1,0 +1,142 @@
+/* ==========================================================================
+   1. CORE VARIABLES & BASE STYLES
+   ========================================================================== */
+:root {
+    --primary-color: #4f46e5;       /* Indigo primary */
+    --primary-hover: #4338ca;
+    --bg-main: #f8fafc;             /* Light neutral background */
+    --bg-surface: #ffffff;          /* Table card background */
+    --text-primary: #0f172a;        /* Main dark text */
+    --text-secondary: #64748b;      /* Muted text */
+    --border-color: #e2e8f0;       /* Border color */
+    --radius-md: 12px;
+    --radius-sm: 6px;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --transition: all 0.2s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Page Container Wrapper */
+body > div, 
+body {
+    width: 100%;
+    max-width: 960px;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   2. TABLE STYLING (Overrides HTML border attribute)
+   ========================================================================== */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color) !important; /* Overrides border="1" */
+    overflow: hidden;
+}
+
+th, td {
+    padding: 16px 20px;
+    text-align: left;
+    border: none !important; /* Removes legacy table borders */
+}
+
+/* Header Row */
+th {
+    background-color: #f1f5f9;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Data Rows */
+td {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color) !important;
+    vertical-align: middle;
+}
+
+tr:last-child td {
+    border-bottom: none !important;
+}
+
+tbody tr {
+    transition: var(--transition);
+}
+
+tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Column Formatting */
+td:first-child {
+    font-weight: 600; /* Candidate Name */
+}
+
+td:nth-child(2) {
+    color: var(--text-secondary); /* Job Title */
+}
+
+td:nth-child(3),
+td:nth-child(4) {
+    font-variant-numeric: tabular-nums; /* Clean alignment for Date & Time */
+}
+
+/* ==========================================================================
+   3. STATUS INDICATORS
+   ========================================================================== */
+td:last-child {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Highlight status text based on state */
+tr:has(td:contains("Scheduled")) td:last-child {
+    color: var(--primary-color);
+}
+
+tr:has(td:contains("Completed")) td:last-child {
+    color: #166534; /* Green accent */
+}
+
+/* ==========================================================================
+   4. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 680px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto; /* Handles horizontal scrolling on small screens */
+        white-space: nowrap;
+    }
+}

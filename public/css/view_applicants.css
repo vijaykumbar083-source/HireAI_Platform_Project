@@ -1,0 +1,159 @@
+/* ==========================================================================
+   1. CORE VARIABLES & BASE STYLES
+   ========================================================================== */
+:root {
+    --primary-color: #4f46e5;       /* Indigo primary */
+    --primary-hover: #4338ca;
+    --bg-main: #f8fafc;             /* Neutral background */
+    --bg-surface: #ffffff;          /* Table/Card background */
+    --text-primary: #0f172a;        /* Main text */
+    --text-secondary: #64748b;      /* Muted text */
+    --border-color: #e2e8f0;       /* Light border */
+    --radius-md: 12px;
+    --radius-sm: 6px;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+    --transition: all 0.2s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Base Wrapper Alignment */
+body > div, 
+body {
+    width: 100%;
+    max-width: 960px;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   2. TABLE STYLING
+   ========================================================================== */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color) !important; /* Overrides HTML border="1" */
+    overflow: hidden;
+}
+
+th, td {
+    padding: 16px 20px;
+    text-align: left;
+    border: none !important; /* Cleans standard table grid lines */
+}
+
+/* Header Row */
+th {
+    background-color: #f1f5f9;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Data Rows */
+td {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color) !important;
+    vertical-align: middle;
+}
+
+tr:last-child td {
+    border-bottom: none !important;
+}
+
+tbody tr {
+    transition: var(--transition);
+}
+
+tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Candidate Name & Email Specifics */
+td:first-child {
+    font-weight: 600;
+}
+
+td:nth-child(2) {
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   3. ACTION BUTTONS (View Resume)
+   ========================================================================== */
+button {
+    background-color: #e0e7ff;
+    color: var(--primary-color);
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   4. STATUS COLUMN ACCENTS
+   ========================================================================== */
+td:last-child {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Highlight status text based on state */
+tr:has(td:contains("Applied")) td:last-child {
+    color: var(--primary-color);
+}
+
+tr:has(td:contains("Shortlisted")) td:last-child {
+    color: #166534; /* Green accent */
+}
+
+/* ==========================================================================
+   5. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 680px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto; /* Horizontal scroll on small devices */
+        white-space: nowrap;
+    }
+}

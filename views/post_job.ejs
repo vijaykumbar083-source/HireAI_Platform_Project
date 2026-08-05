@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Job</title>
+
+    <link rel="stylesheet" href="/css/post_job.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Post New Job</h1>
+
+    <form action="/post_job" method="POST">
+
+        <label>Job Title</label>
+        <input type="text" name="title" placeholder="Enter Job Title">
+
+        <label>Location</label>
+        <input type="text" name="location" placeholder="Enter Location">
+
+        <label>Experience</label>
+        <input type="text" name="experience" placeholder="Required Experience">
+
+        <label>Salary</label>
+        <input type="text" name="salary" placeholder="Salary">
+
+        <label>Skills</label>
+        <input type="text" name="skills" placeholder="Java, React, Node">
+
+        <label>Description</label>
+        <textarea name="description"></textarea>
+
+        <button type="submit">Post Job</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
