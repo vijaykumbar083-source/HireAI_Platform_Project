@@ -75,65 +75,111 @@
         <!-- Post Job Form Section -->
         <section class="form-section">
             <h2>Job Details</h2>
-            <form action="/api/jobs/create" method="POST" class="job-form">
-                
-                <div class="form-group">
-                    <label for="job-title">Job Title</label>
-                    <input type="text" id="job-title" name="title" placeholder="e.g. Senior MERN Developer" required>
-                </div>
+            <form action="/recruiter_dashboard/post_job" method="POST" class="job-form">
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="job-type">Employment Type</label>
-                        <select id="job-type" name="type" required>
-                            <option value="" disabled selected>Select Type</option>
-                            <option value="full-time">Full-Time</option>
-                            <option value="part-time">Part-Time</option>
-                            <option value="contract">Contract</option>
-                            <option value="internship">Internship</option>
-                        </select>
-                    </div>
+    <div class="form-group">
+        <label for="job-title">Job Title</label>
+        <input
+            type="text"
+            id="job-title"
+            name="title"
+            placeholder="e.g. Senior MERN Developer"
+            required>
+    </div>
 
-                    <div class="form-group">
-                        <label for="experience">Required Experience</label>
-                        <select id="experience" name="experience" required>
-                            <option value="" disabled selected>Select Experience</option>
-                            <option value="fresher">Fresher (0 years)</option>
-                            <option value="1-2">1 - 2 Years</option>
-                            <option value="3-5">3 - 5 Years</option>
-                            <option value="5+">5+ Years</option>
-                        </select>
-                    </div>
-                </div>
+    <div class="form-group">
+        <label for="company">Company Name</label>
+        <input
+            type="text"
+            id="company"
+            name="company"
+            placeholder="e.g. Google"
+            required>
+    </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="location">Location</label>
-                        <input type="text" id="location" name="location" placeholder="e.g. Bengaluru, Remote" required>
-                    </div>
+    <div class="form-row">
 
-                    <div class="form-group">
-                        <label for="salary">Salary Range</label>
-                        <input type="text" id="salary" name="salary" placeholder="e.g. $80,000 - $100,000 / year">
-                    </div>
-                </div>
+        <div class="form-group">
+            <label for="job-type">Employment Type</label>
+            <select id="job-type" name="jobType" required>
+                <option value="" disabled selected>Select Type</option>
+                <option value="Full-Time">Full-Time</option>
+                <option value="Part-Time">Part-Time</option>
+                <option value="Contract">Contract</option>
+                <option value="Internship">Internship</option>
+                <option value="Remote">Remote</option>
+            </select>
+        </div>
 
-                <div class="form-group">
-                    <label for="skills">Key Skills (comma separated)</label>
-                    <input type="text" id="skills" name="skills" placeholder="e.g. React, Node.js, MongoDB, Express">
-                </div>
+        <div class="form-group">
+            <label for="experience">Required Experience</label>
+            <select id="experience" name="experience" required>
+                <option value="" disabled selected>Select Experience</option>
+                <option value="Fresher">Fresher</option>
+                <option value="1-2 Years">1 - 2 Years</option>
+                <option value="3-5 Years">3 - 5 Years</option>
+                <option value="5+ Years">5+ Years</option>
+            </select>
+        </div>
 
-                <div class="form-group">
-                    <label for="description">Job Description</label>
-                    <textarea id="description" name="description" rows="6" placeholder="Describe key responsibilities and requirements..." required></textarea>
-                </div>
+    </div>
 
-                <div class="form-actions">
-                    <button type="submit" class="btn-primary">Publish Job</button>
-                    <button type="button" class="btn-secondary" onclick="window.history.back()">Cancel</button>
-                </div>
+    <div class="form-row">
 
-            </form>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input
+                type="text"
+                id="location"
+                name="location"
+                placeholder="e.g. Bengaluru"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <input
+                type="text"
+                id="salary"
+                name="salary"
+                placeholder="e.g. ₹8 LPA - ₹12 LPA">
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label for="skills">Required Skills</label>
+        <input
+            type="text"
+            id="skills"
+            name="skills"
+            placeholder="React, Node.js, MongoDB, Express">
+    </div>
+
+    <div class="form-group">
+        <label for="description">Job Description</label>
+        <textarea
+            id="description"
+            name="description"
+            rows="6"
+            placeholder="Describe responsibilities, requirements, and benefits..."
+            required></textarea>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn-primary">
+            Publish Job
+        </button>
+
+        <button
+            type="button"
+            class="btn-secondary"
+            onclick="window.history.back()">
+            Cancel
+        </button>
+    </div>
+
+</form>
         </section>
 
     </main>

@@ -82,52 +82,57 @@
             </div>
 
             <table>
-                <thead>
-                    <tr>
-                        <th>Job Title</th>
-                        <th>Type</th>
-                        <th>Applications</th>
-                        <th>Date Posted</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>MERN Stack Developer</td>
-                        <td>Full-Time</td>
-                        <td>42</td>
-                        <td>Aug 01, 2026</td>
-                        <td><span class="status active">Active</span></td>
-                        <td class="actions-cell">
-                            <button class="btn-icon" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button class="btn-icon danger" title="Delete"><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Frontend Developer</td>
-                        <td>Full-Time</td>
-                        <td>68</td>
-                        <td>Jul 20, 2026</td>
-                        <td><span class="status active">Active</span></td>
-                        <td class="actions-cell">
-                            <button class="btn-icon" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button class="btn-icon danger" title="Delete"><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Java Backend Lead</td>
-                        <td>Full-Time</td>
-                        <td>54</td>
-                        <td>Jul 10, 2026</td>
-                        <td><span class="status closed">Closed</span></td>
-                        <td class="actions-cell">
-                            <button class="btn-icon" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button class="btn-icon danger" title="Delete"><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+
+    <thead>
+
+        <tr>
+            <th>Job Title</th>
+            <th>Company</th>
+            <th>Job Type</th>
+            <th>Location</th>
+            <th>Salary</th>
+            <th>Actions</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <% jobs.forEach(job => { %>
+
+        <tr>
+
+            <td><%= job.title %></td>
+
+            <td><%= job.company %></td>
+
+            <td><%= job.jobType %></td>
+
+            <td><%= job.location %></td>
+
+            <td><%= job.salary %></td>
+
+            <td>
+
+                <a href="/recruiter_dashboard/edit_job/<%= job._id %>">
+                    Edit
+                </a>
+
+                |
+
+                <a href="/recruiter_dashboard/delete_job/<%= job._id %>">
+                    Delete
+                </a>
+
+            </td>
+
+        </tr>
+
+        <% }) %>
+
+    </tbody>
+
+</table>
         </section>
 
     </main>
