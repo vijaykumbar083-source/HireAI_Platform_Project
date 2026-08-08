@@ -7,7 +7,10 @@ exports.recruiterdashboard = (req, res) => {
 
 exports.postjob = (req, res) => {
     console.log("post job");
-    res.render("post_job");
+   
+    res.render("post_job", {
+        job: null
+    });
 };
 
 exports.managejobs = async(req, res) => {
