@@ -13,4 +13,8 @@ router.get("/view_applicants", controller.viewapplicants);
 router.get("/interview_schedule", controller.interviewschedule);
 router.get("/company_profile", controller.companyprofile);
 
+router.get("/delete_job/:id", controller.deleteJob);
+
+router.get("/edit_job/:id",controller.editjob);
+router.post("/edit_job/:id",controller.updateJob);
 module.exports = router;

@@ -3,188 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post Job | HireAI</title>
+    <title><%= job ? "HireAI | Edit Job" : "HireAI | Post Job" %></title>
+
     <link rel="stylesheet" href="/css/recruiter_dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
-<div class="container">
+<!-- Sidebar -->
+<aside class="sidebar">
+    <h2>HireAI</h2>
+    <ul>
+        <li>
+            <a href="/recruiter_dashboard">
+                <i class="fa-solid fa-house"></i> Dashboard
+            </a>
+        </li>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <h2>HireAI</h2>
-        <ul>
-            <li>
-                <a href="/recruiter_dashboard">
-                    <i class="fa-solid fa-house"></i>
-                    Dashboard
-                </a>
-            </li>
-            <li class="active">
-                <a href="/recruiter_dashboard/post_job">
-                    <i class="fa-solid fa-plus"></i>
-                    Post Job
-                </a>
-            </li>
-            <li>
-                <a href="/recruiter_dashboard/manage_jobs">
-                    <i class="fa-solid fa-briefcase"></i>
-                    Manage Jobs
-                </a>
-            </li>
-            <li>
-                <a href="/recruiter_dashboard/view_applicants">
-                    <i class="fa-solid fa-users"></i>
-                    Applicants
-                </a>
-            </li>
-            <li>
-                <a href="/recruiter_dashboard/interview_schedule">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    Interviews
-                </a>
-            </li>
-            <li>
-                <a href="/recruiter_dashboard/company_profile">
-                    <i class="fa-solid fa-building"></i>
-                    Company
-                </a>
-            </li>
-            <li>
-                <a href="/">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    Logout
-                </a>
-            </li>
-        </ul>
-    </aside>
+        <li class="<%= job ? '' : 'active' %>">
+            <a href="/recruiter_dashboard/post_job">
+                <i class="fa-solid fa-plus"></i> Post Job
+            </a>
+        </li>
 
-    <!-- Main Content -->
-    <main class="main-content">
+        <li>
+            <a href="/recruiter_dashboard/manage_jobs">
+                <i class="fa-solid fa-briefcase"></i> Manage Jobs
+            </a>
+        </li>
 
-        <!-- Navbar -->
-        <header class="navbar">
-            <h1>Post a New Job</h1>
-            <div class="profile">
-                <img src="https://i.pravatar.cc/50" alt="Profile">
-                <span>Recruiter</span>
+        <li>
+            <a href="/recruiter_dashboard/view_applicants">
+                <i class="fa-solid fa-users"></i> Applicants
+            </a>
+        </li>
+
+        <li>
+            <a href="/recruiter_dashboard/interview_schedule">
+                <i class="fa-solid fa-calendar-days"></i> Interviews
+            </a>
+        </li>
+
+        <li>
+            <a href="/recruiter_dashboard/company_profile">
+                <i class="fa-solid fa-building"></i> Company
+            </a>
+        </li>
+
+        <li>
+            <a href="/">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
+        </li>
+    </ul>
+</aside>
+
+<!-- Main Content -->
+<main class="main-content">
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <h1><%= job ? "Edit Job" : "Post a New Job" %></h1>
+
+        <div class="profile">
+            <img src="https://i.pravatar.cc/50" alt="Profile">
+            <span>Recruiter</span>
+        </div>
+    </header>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <h2><%= job ? "Edit Job Details" : "Job Details" %></h2>
+
+        <form
+            action="<%= job ? '/recruiter_dashboard/edit_job/' + job._id : '/recruiter_dashboard/post_job' %>"
+            method="POST"
+            class="job-form">
+
+            <!-- Job Title -->
+            <div class="form-group">
+                <label for="job-title">Job Title</label>
+                <input
+                    type="text"
+                    id="job-title"
+                    name="title"
+                    placeholder="e.g. Senior MERN Developer"
+                    value="<%= job ? job.title : '' %>"
+                    required>
             </div>
-        </header>
 
-        <!-- Post Job Form Section -->
-        <section class="form-section">
-            <h2>Job Details</h2>
-            <form action="/recruiter_dashboard/post_job" method="POST" class="job-form">
+            <!-- Company -->
+            <div class="form-group">
+                <label for="company">Company Name</label>
+                <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    placeholder="e.g. Google"
+                    value="<%= job ? job.company : '' %>"
+                    required>
+            </div>
 
-    <div class="form-group">
-        <label for="job-title">Job Title</label>
-        <input
-            type="text"
-            id="job-title"
-            name="title"
-            placeholder="e.g. Senior MERN Developer"
-            required>
-    </div>
+            <!-- Job Type + Experience -->
+            <div class="form-row">
 
-    <div class="form-group">
-        <label for="company">Company Name</label>
-        <input
-            type="text"
-            id="company"
-            name="company"
-            placeholder="e.g. Google"
-            required>
-    </div>
+                <div class="form-group">
+                    <label for="job-type">Employment Type</label>
 
-    <div class="form-row">
+                    <select id="job-type" name="jobType" required>
+                        <option value="" disabled <%= !job ? "selected" : "" %>>
+                            Select Type
+                        </option>
 
-        <div class="form-group">
-            <label for="job-type">Employment Type</label>
-            <select id="job-type" name="jobType" required>
-                <option value="" disabled selected>Select Type</option>
-                <option value="Full-Time">Full-Time</option>
-                <option value="Part-Time">Part-Time</option>
-                <option value="Contract">Contract</option>
-                <option value="Internship">Internship</option>
-                <option value="Remote">Remote</option>
-            </select>
-        </div>
+                        <option value="Full-Time"
+                            <%= job && job.jobType === "Full-Time" ? "selected" : "" %>>
+                            Full-Time
+                        </option>
 
-        <div class="form-group">
-            <label for="experience">Required Experience</label>
-            <select id="experience" name="experience" required>
-                <option value="" disabled selected>Select Experience</option>
-                <option value="Fresher">Fresher</option>
-                <option value="1-2 Years">1 - 2 Years</option>
-                <option value="3-5 Years">3 - 5 Years</option>
-                <option value="5+ Years">5+ Years</option>
-            </select>
-        </div>
+                        <option value="Part-Time"
+                            <%= job && job.jobType === "Part-Time" ? "selected" : "" %>>
+                            Part-Time
+                        </option>
 
-    </div>
+                        <option value="Contract"
+                            <%= job && job.jobType === "Contract" ? "selected" : "" %>>
+                            Contract
+                        </option>
 
-    <div class="form-row">
+                        <option value="Internship"
+                            <%= job && job.jobType === "Internship" ? "selected" : "" %>>
+                            Internship
+                        </option>
 
-        <div class="form-group">
-            <label for="location">Location</label>
-            <input
-                type="text"
-                id="location"
-                name="location"
-                placeholder="e.g. Bengaluru"
-                required>
-        </div>
+                        <option value="Remote"
+                            <%= job && job.jobType === "Remote" ? "selected" : "" %>>
+                            Remote
+                        </option>
+                    </select>
+                </div>
 
-        <div class="form-group">
-            <label for="salary">Salary</label>
-            <input
-                type="text"
-                id="salary"
-                name="salary"
-                placeholder="e.g. ₹8 LPA - ₹12 LPA">
-        </div>
+                <div class="form-group">
+                    <label for="experience">Required Experience</label>
 
-    </div>
+                    <select id="experience" name="experience" required>
+                        <option value="" disabled <%= !job ? "selected" : "" %>>
+                            Select Experience
+                        </option>
 
-    <div class="form-group">
-        <label for="skills">Required Skills</label>
-        <input
-            type="text"
-            id="skills"
-            name="skills"
-            placeholder="React, Node.js, MongoDB, Express">
-    </div>
+                        <option value="Fresher"
+                            <%= job && job.experience === "Fresher" ? "selected" : "" %>>
+                            Fresher
+                        </option>
 
-    <div class="form-group">
-        <label for="description">Job Description</label>
-        <textarea
-            id="description"
-            name="description"
-            rows="6"
-            placeholder="Describe responsibilities, requirements, and benefits..."
-            required></textarea>
-    </div>
+                        <option value="1-2 Years"
+                            <%= job && job.experience === "1-2 Years" ? "selected" : "" %>>
+                            1 - 2 Years
+                        </option>
 
-    <div class="form-actions">
-        <button type="submit" class="btn-primary">
-            Publish Job
-        </button>
+                        <option value="3-5 Years"
+                            <%= job && job.experience === "3-5 Years" ? "selected" : "" %>>
+                            3 - 5 Years
+                        </option>
 
-        <button
-            type="button"
-            class="btn-secondary"
-            onclick="window.history.back()">
-            Cancel
-        </button>
-    </div>
+                        <option value="5+ Years"
+                            <%= job && job.experience === "5+ Years" ? "selected" : "" %>>
+                            5+ Years
+                        </option>
+                    </select>
+                </div>
 
-</form>
-        </section>
+            </div>
 
-    </main>
+            <!-- Location + Salary -->
+            <div class="form-row">
 
-</div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        placeholder="e.g. Bengaluru"
+                        value="<%= job ? job.location : '' %>"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="salary">Salary</label>
+                    <input
+                        type="text"
+                        id="salary"
+                        name="salary"
+                        placeholder="e.g. ₹8 LPA - ₹12 LPA"
+                        value="<%= job ? job.salary : '' %>">
+                </div>
+
+            </div>
+
+            <!-- Skills -->
+            <div class="form-group">
+                <label for="skills">Required Skills</label>
+                <input
+                    type="text"
+                    id="skills"
+                    name="skills"
+                    placeholder="React, Node.js, MongoDB, Express"
+                    value="<%= job ? job.skills : '' %>">
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label for="description">Job Description</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="6"
+                    placeholder="Describe responsibilities, requirements, and benefits..."
+                    required><%= job ? job.description : '' %></textarea>
+            </div>
+
+            <!-- Buttons -->
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">
+                    <i class="fa-solid <%= job ? 'fa-pen-to-square' : 'fa-plus' %>"></i>
+                    <%= job ? "Update Job" : "Publish Job" %>
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-secondary"
+                    onclick="window.location.href='/recruiter_dashboard/manage_jobs'">
+                    <i class="fa-solid fa-xmark"></i>
+                    Cancel
+                </button>
+            </div>
+
+        </form>
+    </section>
+
+</main>
 
 </body>
 </html>

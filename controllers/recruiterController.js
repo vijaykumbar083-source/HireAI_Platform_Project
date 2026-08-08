@@ -41,7 +41,7 @@ exports.companyprofile = (req, res) => {
     res.render("company_profile");
 };
 
-//post 
+//post
 exports.createJob=async(req,res)=>{
     console.log("Job Created Succefully");
     try{
@@ -56,3 +56,69 @@ exports.createJob=async(req,res)=>{
     }
 
 }
+
+exports.deleteJob = async (req, res) => {
+
+    try {
+
+        await Job.findByIdAndDelete(req.params.id);
+
+        res.redirect("/recruiter_dashboard/manage_jobs");
+
+    } catch (err) {
+
+        console.log(err);
+
+        res.status(500).send("Error deleting job");
+
+    }
+
+};
+
+exports.editjob=async (req,res)=>{
+
+    console.log("Edit Job get");
+    try{
+        const job=await Job.findById(req.params.id);
+
+        if(!job){
+              return res.status(404).send("Job not found");
+        }
+
+         res.render("post_job", {
+            job
+        });
+
+    }catch(err){
+          console.log(err);
+        res.status(500).send("Error loading job");
+    }
+}
+
+exports.updateJob = async (req, res) => {
+
+    try {
+
+        await Job.findByIdAndUpdate(
+            req.params.id,
+            {
+                title: req.body.title,
+                company: req.body.company,
+                location: req.body.location,
+                salary: req.body.salary,
+                experience: req.body.experience,
+                jobType: req.body.jobType,
+                skills: req.body.skills,
+                description: req.body.description
+            }
+        );
+
+        res.redirect("/recruiter_dashboard/manage_jobs");
+
+    } catch (err) {
+
+        console.log(err);
+        res.status(500).send("Error updating job");
+
+    }
+};

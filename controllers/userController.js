@@ -1,4 +1,6 @@
 const Job=require("../models//job");
+
+
 exports.home = (req, res, next) => {
     console.log(req.url, req.body);
     res.render("index");
